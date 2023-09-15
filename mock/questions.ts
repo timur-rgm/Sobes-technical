@@ -8,13 +8,13 @@ export const questions: Question[] = [
     },
     {
         id: 2,
-        type: 'radio',
+        type: 'single',
         title: 'Сколько у вас лет опыта во frontend-разработке?',
         options: [1, 2, 3, 4, 5],
     },
     {
         id: 3,
-        type: 'check',
+        type: 'multiple',
         title: 'Выберите технологии, которыми вы владеете:',
         options: ['React', 'Typescript', 'Redux', 'MobX', 'Next'],
     },
@@ -25,7 +25,7 @@ export const questions: Question[] = [
     },
     {
         id: 5,
-        type: 'video',
+        type: 'photo',
         title: 'Загрузите ваше фото',
     },
 ]
