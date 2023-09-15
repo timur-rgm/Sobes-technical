@@ -1,6 +1,8 @@
 export type Question = {
     id: number
-    type: 'text' | 'single' | 'multiple' | 'video' | 'photo'
+    type: QuestionType
     title: string
     options?: string[] | number[]
 }
+
+export type QuestionType = 'text' | 'single' | 'multiple' | 'video' | 'photo'

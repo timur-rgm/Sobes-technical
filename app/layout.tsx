@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
 import Card from '@mui/material/Card'
+import { Roboto } from 'next/font/google'
 import './globals.scss'
 
 const roboto = Roboto({

@@ -13,7 +13,7 @@ export default function Home() {
                 Пройдите небольшое тестирование, состоящее из 5 вопросов
             </Typography>
             <CardActions sx={{ justifyContent: 'center' }}>
-                <Link href="/quiz">
+                <Link href="/test">
                     <Button size="small" variant="contained">
                         Начать
                     </Button>
