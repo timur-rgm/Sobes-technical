@@ -9,7 +9,7 @@ export default function Home() {
             <Typography component="h1" sx={{ marginBottom: '5px', fontSize: 18, fontWeight: '600', textAlign: 'center' }}>
                 Тестирование
             </Typography>
-            <Typography component="p" sx={{ marginBottom: '20px', fontSize: 14, textAlign: 'center' }}>
+            <Typography component="p" sx={{ marginBottom: '20px', fontSize: 16, textAlign: 'center' }}>
                 Пройдите небольшое тестирование, состоящее из 5 вопросов
             </Typography>
             <CardActions sx={{ justifyContent: 'center' }}>
