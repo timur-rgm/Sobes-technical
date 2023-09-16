@@ -50,6 +50,7 @@ export default function List({ questions }: Props) {
             <Typography classes={{ root: styles.title }} component="h1">
                 Вопрос {currentQuestionIndex + 1} из {questions.length}
             </Typography>
+
             <CurrentQuestion onButtonClick={handleNextButtonClick} question={currentQuestion} />
         </>
     )

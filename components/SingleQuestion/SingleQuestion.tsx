@@ -23,6 +23,7 @@ export default function SingleQuestion({ question, onButtonClick }: Props) {
             <FormLabel classes={{ root: styles.title, focused: styles.focused }} id="demo-controlled-radio-buttons-group">
                 {question.title}
             </FormLabel>
+
             <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
@@ -33,6 +34,7 @@ export default function SingleQuestion({ question, onButtonClick }: Props) {
                     <FormControlLabel key={option} control={<Radio />} label={option} value={option} />
                 ))}
             </RadioGroup>
+
             <Button
                 classes={{ root: styles.button }}
                 onClick={() => onButtonClick(question.id, value)}

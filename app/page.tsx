@@ -1,18 +1,20 @@
 import Link from 'next/link'
-import Typography from '@mui/material/Typography'
-import CardActions from '@mui/material/CardActions'
-import Button from '@mui/material/Button'
+import { Typography, Button, CardActions } from '@mui/material'
+
+import styles from './page.module.scss'
 
 export default function Home() {
     return (
         <>
-            <Typography component="h1" sx={{ marginBottom: '5px', fontSize: 18, fontWeight: '600', textAlign: 'center' }}>
+            <Typography classes={{ root: styles.title }} component="h1">
                 Тестирование
             </Typography>
-            <Typography component="p" sx={{ marginBottom: '20px', fontSize: 16, textAlign: 'center' }}>
+
+            <Typography classes={{ root: styles.subtitle }} component="p">
                 Пройдите небольшое тестирование, состоящее из 5 вопросов
             </Typography>
-            <CardActions sx={{ justifyContent: 'center' }}>
+
+            <CardActions classes={{ root: styles.buttonContainer }}>
                 <Link href="/test">
                     <Button size="small" variant="contained">
                         Начать

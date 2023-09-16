@@ -37,7 +37,9 @@ export default function TextQuestion({ question, onButtonClick }: Props) {
             <FormLabel classes={{ root: styles.title, focused: styles.focused }} id="demo-controlled-radio-buttons-group">
                 {question.title}
             </FormLabel>
+
             <TextField error={isError} label="Имя фамилия" onChange={handleChange} size="small" />
+
             <Button onClick={() => handleClick(question.id, value)} size="small" variant="contained">
                 Следующий
             </Button>
