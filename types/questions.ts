@@ -7,4 +7,4 @@ export type Question = {
 
 export type QuestionType = 'text' | 'single' | 'multiple' | 'video' | 'photo'
 
-export type Answer = number | string | string[]
+export type Answer = number | string | string[] | {[key: string]: boolean}

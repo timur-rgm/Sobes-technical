@@ -7,11 +7,11 @@ import { Question, Answer } from '@/types/questions'
 import styles from './TextQuestion.module.scss'
 
 type Props = {
-    onButtonClick: (id: number, value: Answer) => void
+    onSubmit: (id: number, value: Answer) => void
     question: Question
 }
 
-export default function TextQuestion({ question, onButtonClick }: Props) {
+export default function TextQuestion({ question, onSubmit }: Props) {
     const [value, setValue] = useState<string>('')
     const [isError, setIsError] = useState<boolean>(false)
 
@@ -22,14 +22,14 @@ export default function TextQuestion({ question, onButtonClick }: Props) {
 
     const isValueEmpty = String(value).trim().length === 0
 
-    const handleClick = (id: number, value: Answer) => {
+    const handleSubmit = () => {
         if (isValueEmpty) {
             setIsError(true)
 
             return
         }
 
-        onButtonClick(id, value)
+        onSubmit(question.id, value)
     }
 
     return (
@@ -40,7 +40,7 @@ export default function TextQuestion({ question, onButtonClick }: Props) {
 
             <TextField error={isError} label="Имя фамилия" onChange={handleChange} size="small" />
 
-            <Button onClick={() => handleClick(question.id, value)} size="small" variant="contained">
+            <Button onClick={handleSubmit} size="small" variant="contained">
                 Следующий
             </Button>
         </FormControl>

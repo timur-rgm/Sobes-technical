@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography'
 
 import TextQuestion from '@/components/TextQuestion/TextQuestion'
 import SingleQuestion from '@/components/SingleQuestion/SingleQuestion'
-import MultipleQuestion from '@/components/MultipleQuestion'
+import MultipleQuestion from '@/components/MultipleQuestion/MultipleQuestion'
 import VideoQuestion from '@/components/VideoQuestion'
 import PhotoQuestion from '@/components/PhotoQuestion'
 import { Question, QuestionType, Answer } from '@/types/questions'
@@ -15,7 +15,7 @@ import styles from './List.module.scss'
 
 type Components = Record<
     QuestionType,
-    ({ question, onButtonClick }: { question: Question; onButtonClick: () => void }) => ReactElement
+    ({ question, onSubmit }: { question: Question; onSubmit: () => void }) => ReactElement
 >
 
 const components: Components = {
@@ -51,7 +51,7 @@ export default function List({ questions }: Props) {
                 Вопрос {currentQuestionIndex + 1} из {questions.length}
             </Typography>
 
-            <CurrentQuestion onButtonClick={handleNextButtonClick} question={currentQuestion} />
+            <CurrentQuestion onSubmit={handleNextButtonClick} question={currentQuestion} />
         </>
     )
 }

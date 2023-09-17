@@ -7,15 +7,19 @@ import { Question, Answer } from '@/types/questions'
 import styles from './SingleQuestion.module.scss'
 
 type Props = {
-    onButtonClick: (id: number, value: Answer) => void
+    onSubmit: (id: number, value: Answer) => void
     question: Question
 }
 
-export default function SingleQuestion({ question, onButtonClick }: Props) {
+export default function SingleQuestion({ question, onSubmit }: Props) {
     const [value, setValue] = useState<number>(1)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(Number((event.target as HTMLInputElement).value))
+    }
+
+    const handleSubmit = () => {
+        onSubmit(question.id, value)
     }
 
     return (
@@ -35,12 +39,7 @@ export default function SingleQuestion({ question, onButtonClick }: Props) {
                 ))}
             </RadioGroup>
 
-            <Button
-                classes={{ root: styles.button }}
-                onClick={() => onButtonClick(question.id, value)}
-                size="small"
-                variant="contained"
-            >
+            <Button classes={{ root: styles.button }} onClick={handleSubmit} size="small" variant="contained">
                 Следующий
             </Button>
         </FormControl>

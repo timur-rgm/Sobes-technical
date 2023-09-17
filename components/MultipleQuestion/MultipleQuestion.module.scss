@@ -1,0 +1,21 @@
+.root {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    color: inherit;
+
+    &.focused {
+        color: inherit;
+    }
+}
+
+.button {
+    width: 110px;
+    margin: 0 auto;
+}
