@@ -45,7 +45,7 @@ export default function PhotoQuestion({ onSubmit, question }: Props) {
         data.append('format', 'json')
         data.append('source', file)
 
-        fetch('http://localhost:8010/proxy/api/1/upload', {
+        fetch('https://freeimage.host/api/1/upload', {
             method: 'POST',
             body: data,
         })
