@@ -7,15 +7,15 @@ import Typography from '@mui/material/Typography'
 import TextQuestion from '@/components/TextQuestion/TextQuestion'
 import SingleQuestion from '@/components/SingleQuestion/SingleQuestion'
 import MultipleQuestion from '@/components/MultipleQuestion/MultipleQuestion'
-import VideoQuestion from '@/components/VideoQuestion'
-import PhotoQuestion from '@/components/PhotoQuestion'
+import PhotoQuestion from '@/components/PhotoQuestion/PhotoQuestion'
+import VideoQuestion from '@/components/VideoQuestion/VideoQuestion'
 import { Question, QuestionType, Answer } from '@/types/questions'
 
 import styles from './List.module.scss'
 
 type Components = Record<
     QuestionType,
-    ({ question, onSubmit }: { question: Question; onSubmit: () => void }) => ReactElement
+    ({ question, onSubmit }: { question: Question; onSubmit: (id: number, value: Answer) => void }) => ReactElement
 >
 
 const components: Components = {
@@ -31,7 +31,7 @@ type Props = {
 }
 
 export default function List({ questions }: Props) {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(3)
     const [answers, setAnswers] = useState<Record<number, Answer>>({})
 
     const currentQuestion = questions[currentQuestionIndex]

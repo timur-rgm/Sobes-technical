@@ -1,12 +1,15 @@
 import Typography from '@mui/material/Typography'
 
-import { Question } from '@/types/questions'
+import { Answer, Question } from '@/types/questions'
+
+import styles from './VideoQuestion.module.scss'
 
 type Props = {
+    onSubmit: (id: number, value: Answer) => void
     question: Question
 }
 
-export default function VideoQuestion({ question }: Props) {
+export default function VideoQuestion({ onSubmit, question }: Props) {
     return (
         <Typography
             component="h2"
