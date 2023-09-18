@@ -47,6 +47,12 @@ export default function PhotoQuestion({ onSubmit, question }: Props) {
 
         fetch('https://freeimage.host/api/1/upload', {
             method: 'POST',
+            headers: {
+                'Access-Control-Allow-Credentials': 'true',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+                'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
+            },
             body: data,
         })
             .then((response) => response.json())
