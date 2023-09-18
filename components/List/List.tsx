@@ -2,6 +2,7 @@
 
 import { useState, ReactElement } from 'react'
 
+import { useRouter } from 'next/navigation'
 import Typography from '@mui/material/Typography'
 
 import TextQuestion from '@/components/TextQuestion/TextQuestion'
@@ -31,18 +32,27 @@ type Props = {
 }
 
 export default function List({ questions }: Props) {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(3)
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
     const [answers, setAnswers] = useState<Record<number, Answer>>({})
+
+    const router = useRouter()
 
     const currentQuestion = questions[currentQuestionIndex]
     const CurrentQuestion = components[currentQuestion.type]
 
+    const isLastQuestion = currentQuestionIndex + 1 === questions.length
+
     const handleNextButtonClick = (id: number, value: Answer) => {
+        if (isLastQuestion) {
+            router.push('/completed')
+
+            return
+        }
+
         setCurrentQuestionIndex((prevState) => prevState + 1)
         setAnswers((prevState) => ({ ...prevState, [id]: value }))
     }
 
-    console.log(questions) //eslint-disable-line no-console
     console.log(answers) // eslint-disable-line no-console
 
     return (
@@ -51,7 +61,10 @@ export default function List({ questions }: Props) {
                 Вопрос {currentQuestionIndex + 1} из {questions.length}
             </Typography>
 
-            <CurrentQuestion onSubmit={handleNextButtonClick} question={currentQuestion} />
+            <CurrentQuestion
+                onSubmit={handleNextButtonClick}
+                question={currentQuestion}
+            />
         </>
     )
 }

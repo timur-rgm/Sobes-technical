@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Roboto } from 'next/font/google'
 import Card from '@mui/material/Card'
 import './globals.scss'
@@ -25,6 +26,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                         {children}
                     </Card>
                 </main>
+                <Script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js" />
+                <Script src="https://unpkg.com/@smash-sdk/uploader/dist/SmashUploader.browser.js" />
             </body>
         </html>
     )

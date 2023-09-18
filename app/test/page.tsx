@@ -15,5 +15,9 @@ async function getData(): Promise<Question[]> {
 export default async function Test() {
     const questions = await getData()
 
-    return <List questions={questions} />
+    return (
+        <>
+            <List questions={questions} />
+        </>
+    )
 }
